@@ -181,6 +181,8 @@ INSERT INTO pokemon(Number,Name,Type_1,Type_2,Total,HP,Attack,Defense,Sp_Atk,Sp_
 INSERT INTO pokemon(Number,Name,Type_1,Type_2,Total,HP,Attack,Defense,Sp_Atk,Sp_Def,Speed,Generation,Legendary) VALUES (150,'MewtwoMega Mewtwo X','Psychic','Fighting',780,106,190,100,154,100,130,1,'True');
 
 
+--displays 3 different speed classes and how many pokemon in each class
+
 SELECT COUNT(*),
 CASE
 WHEN Speed > 100 THEN "fast"
@@ -190,12 +192,20 @@ END AS "speed_type"
 FROM pokemon
 GROUP BY speed_type;
 
+
+--which pokemon have an attack higher then 150?
+
 SELECT Number, Name, Attack FROM pokemon
 GROUP BY Number
 HAVING Attack > 150;
 
+
+--which pokemon are type 1 electric type or type 2 water?
+
 SELECT Number, Name, Type_1, Type_2 FROM pokemon
 WHERE Type_1 = "Electric" OR Type_2 = "Water";
 
+
+what are the average HP, Attack and Defense?
 
 SELECT Avg(HP), Avg(Attack), Avg(Defense) FROM pokemon;
