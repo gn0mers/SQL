@@ -180,6 +180,7 @@ INSERT INTO pokemon(Number,Name,Type_1,Type_2,Total,HP,Attack,Defense,Sp_Atk,Sp_
 INSERT INTO pokemon(Number,Name,Type_1,Type_2,Total,HP,Attack,Defense,Sp_Atk,Sp_Def,Speed,Generation,Legendary) VALUES (150,'Mewtwo','Psychic',NULL,680,106,110,90,154,90,130,1,'True');
 INSERT INTO pokemon(Number,Name,Type_1,Type_2,Total,HP,Attack,Defense,Sp_Atk,Sp_Def,Speed,Generation,Legendary) VALUES (150,'MewtwoMega Mewtwo X','Psychic','Fighting',780,106,190,100,154,100,130,1,'True');
 
+
 SELECT COUNT(*),
 CASE
 WHEN Speed > 100 THEN "fast"
