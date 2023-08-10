@@ -1,0 +1,56 @@
+CREATE TABLE Celebrities (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER, date_of_birth TEXT); 
+
+INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Henry Cavill", 40, "May 5, 1083");
+INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Denzel Washington", 68, "Dec 28, 1954");
+INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Mads Mikkelson", 57, "Nov 22, 1965");
+INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Cristiano Ronaldo", 38, "Feb 5, 1985");
+INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Lionel Messi", 36, "June 24, 1987");
+INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Jim Carrey", 61, "Jan 17, 1962");
+INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Dave Grohl", 54, "Jan 14, 1969");
+INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("David Robinson", 58, "Aug 6, 1965");
+INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Alex Guarnaschelli", 54, "June 20, 1969");
+INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Maneet Chauhan", 46, "Oct 27, 1976");
+INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("David Tennant", 52, "Apr 18, 1971");
+INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Stevie Nicks", 75, "May 26, 1948");
+INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Stanley Tucci", 62, "Nov 11, 1960");
+INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Robert Downey Jr", 58, "Apr 4, 1965");
+INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Gordon Ramsey", 56, "Nov 8, 1966");
+INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Phil Collins", 72, "Jan 30, 1951");
+INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Tom Hanks", 67, "July 9, 1956");
+INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Tom Hardy", 45, "Sep 15, 1977");
+INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Maynard James Keenan", 59, "Apr 17, 1964");
+
+CREATE TABLE celebrity_occupation (id INTEGER PRIMARY KEY AUTOINCREMENT, celeb_id INTEGER, occupation TEXT);
+
+INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (1, "actor");
+INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (2, "actor");
+INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (3, "actor");
+INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (6, "actor");
+INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (11, "actor");
+INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (13, "actor");
+INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (14, "actor");
+INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (17, "actor");
+INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (18, "actor");
+INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (4, "athlete");
+INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (5, "athlete");
+INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (8, "athlete");
+INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (7, "musician");
+INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (12, "musician");
+INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (16, "musician");
+INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (19, "musician");
+INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (9, "chef");
+INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (10, "chef");
+INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (15, "chef");
+
+SELECT * FROM Celebrities;
+
+SELECT * FROM celebrity_occupation;
+
+SELECT name, date_of_birth
+FROM Celebrities;
+
+SELECT Celebrities.name, celebrity_occupation.occupation
+FROM Celebrities
+JOIN celebrity_occupation
+ON Celebrities.id = celebrity_occupation.celeb_id
+ORDER BY name;
