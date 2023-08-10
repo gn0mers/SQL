@@ -46,12 +46,21 @@ INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (9, "chef");
 INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (10, "chef");
 INSERT INTO celebrity_occupation (celeb_id, occupation) VALUES (15, "chef");
 
+
+--displays celebrity database
+
 SELECT * FROM Celebrities;
+
+--displays celebrity occupation database
 
 SELECT * FROM celebrity_occupation;
 
+--what are the birthdates of the celebrities?
+
 SELECT name, date_of_birth
 FROM Celebrities;
+
+--what are names and occupation of each celebrity? joins 2 tables
 
 SELECT Celebrities.name, celebrity_occupation.occupation
 FROM Celebrities
