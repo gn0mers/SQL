@@ -1,3 +1,5 @@
+--create celebrities database
+
 CREATE TABLE Celebrities (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER, date_of_birth TEXT); 
 
 INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Henry Cavill", 40, "May 5, 1083");
@@ -19,6 +21,8 @@ INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Phil Collins", 72, "
 INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Tom Hanks", 67, "July 9, 1956");
 INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Tom Hardy", 45, "Sep 15, 1977");
 INSERT INTO Celebrities (name, age, date_of_birth) VALUES ("Maynard James Keenan", 59, "Apr 17, 1964");
+
+--create celebrity occupation database
 
 CREATE TABLE celebrity_occupation (id INTEGER PRIMARY KEY AUTOINCREMENT, celeb_id INTEGER, occupation TEXT);
 
