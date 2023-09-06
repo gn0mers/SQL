@@ -1,0 +1,34 @@
+-- Come up with your own questions about the data and try to answer them.
+
+
+1. Who is the most common artist in the database and how many tracks do they have?
+
+    SELECT artist_name, COUNT(track_name) as num_of_tracks
+    FROM BIT_DB.Spotifydata
+    GROUP BY artist_name
+    ORDER BY COUNT(track_name) desc
+    LIMIT 1;
+
+
+2. What is the average duration of all the songs in minutes?
+
+    SELECT (SUM(duration_ms/COUNT(id))/60000
+    FROM BIT_DB.Spotifydata;
+
+--there are 60000 ms in a minute--
+
+
+3. What are the top 5 popular tracks with artist name?
+
+    SELECT track_name, atrist_name
+    FROM BIT_DB.Spotifydata
+    ORDER BY popularity asc
+    LIMIT 5;
+
+
+4. What is the track and artist with the slowest tempo?
+
+    SELECT track_name, artist_name
+    FROM BIT_DB.Spotifydata
+    ORDER BY tempo asc
+    LIMIT 1;
