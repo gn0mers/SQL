@@ -1,0 +1,100 @@
+~(1) How many albums does each artist have?~
+
+Select ar.Name AS artist, COUNT(al.Title) AS total_albums
+FROM artists ar
+LEFT JOIN albums al ON ar.ArtistId = al.ArtistId
+GROUP BY artist
+~~~~
+
+~(2) What is the top track sold in 2013?~
+
+SELECT sum(it.TrackId), t.Name, t.Composer, i.InvoiceDate
+From invoice_items it
+LEFT JOIN tracks t
+ON it.TrackId = t.TrackId
+LEFT JOIN invoices i
+ON i.InvoiceId = it.InvoiceId
+WHERE i.InvoiceDate BETWEEN "2013-01-01" AND "2013-12-31"
+group by it.TrackId
+order by it.TrackId desc
+limit 1
+~~~~
+
+~(3) What were the top 3 tracks sold in France?~
+
+SELECT sum(it.TrackId), t.Name, t.Composer, i.InvoiceDate, i.BillingCountry
+From invoice_items it
+LEFT JOIN tracks t
+ON it.TrackId = t.TrackId
+LEFT JOIN invoices i
+ON i.InvoiceId = it.InvoiceId
+WHERE i.BillingCountry = "France"
+group by it.TrackId
+order by it.TrackId desc
+limit 3
+~~~~
+
+~(4) which country made the most money from track sales?~
+
+select BillingCountry 
+from invoices
+group by BillingCountry 
+order by sum(Total) desc
+limit 1
+~~~~
+
+~(5) List track name, artist, and albums where genre is rock, alternative & punk, and metal.~
+
+SELECT t.Name, t.Composer, a.title AS album
+FROM tracks t
+LEFT JOIN genres g ON t.GenreId = g.GenreId
+JOIN albums a ON a.AlbumId = t.AlbumId
+WHERE g.Name = 'Alternative & Punk' OR g.Name = 'Rock' OR g.Name = 'Metal'
+~~~~
+
+~(6) List all customers full name, email, and postal code, and full name of rep that helped them and their email.~
+
+SELECT c.FirstName, c.LastName, c.Email, c.PostalCode, e.FirstName as "Rep First Name", e.LastName as "Rep Last Name", e.Email as "Rep Email"
+From Customers c
+JOIN employees e
+On c.SupportRepId = e.EmployeeId
+~~~~
+
+~(7) Name the top 5 customers who spent the most money from the US
+
+Select Distinct(c.CustomerId), FirstName, LastName, SUM(Total)
+from customers c
+join invoices i
+on c.CustomerId = i.CustomerId
+Group by c.CustomerId
+Order By Sum(Total) Desc
+Limit 5
+~~~~
+
+~(8) Which sales agent made the most money in terms of tracks sold and how much did they make?
+
+select e.FirstName, e.LastName, Sum(Total)
+from employees e
+join customers c
+on c.SupportRepId = e.EmployeeId
+join invoices i
+on c.CustomerId = i.CustomerId
+Group by e.EmployeeId
+Order by Sum(Total) Desc
+Limit 1
+~~~~
+
+~(9) What is the total dollars made in 2011?~
+
+SELECT sum(Total) as Total
+FROM invoices
+WHERE InvoiceDate between "2011-01-01" and "2011-12-31"
+~~~~
+
+~(10) List all albums by Black Sabbath and Foo Fighters.~
+
+SELECT al.Title AS "Album Name", ar.Name AS Artist
+FROM albums al
+JOIN artists ar
+ON al.ArtistId = ar.ArtistId
+WHERE ar.Name = "Black Sabbath" OR ar.Name = "Foo Fighters"
